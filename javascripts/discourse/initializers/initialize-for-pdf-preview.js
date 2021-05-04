@@ -8,13 +8,13 @@ const createPreviewElem = () => {
   preview.src = "";
   preview.height = PREVIEW_HEIGHT;
   preview.loading = "lazy";
-  preview.classList.add("pdf-preview");
+  preview.classList.add("stl-preview");
 
   return preview;
 };
 
 export default {
-  name: "pdf-previews",
+  name: "stl-previews",
   initialize() {
     withPluginApi("0.8.41", api => {
       if (Mobile.mobileView) return;
@@ -26,24 +26,24 @@ export default {
 
             if (!attachments.length) return;
 
-            const pdfs = attachments.filter(attachment =>
-              attachment.href.match(/\.[pdf]+$/)
+            const stls = attachments.filter(attachment =>
+              attachment.href.match(/\.[stl]+$/)
             );
 
-            if (!pdfs.length) return;
+            if (!stls.length) return;
 
-            pdfs.forEach(pdf => {
+            stls.forEach(stl => {
               const preview = createPreviewElem();
-              pdf.append(preview);
+              stl.append(preview);
 
-              pdf.classList.add("pdf-attachment");
-              const fileSize = pdf.nextSibling;
+              stl.classList.add("stl-attachment");
+              const fileSize = stl.nextSibling;
               if (fileSize) {
                 fileSize.nodeValue = "";
               }
 
               const httpRequest = new XMLHttpRequest();
-              httpRequest.open("GET", pdf.href);
+              httpRequest.open("GET", stl.href);
               httpRequest.responseType = "blob";
 
               httpRequest.onreadystatechange = () => {
@@ -51,7 +51,7 @@ export default {
 
                 if (httpRequest.status === 200) {
                   const blob = new Blob([httpRequest.response], {
-                    type: "application/pdf"
+                    type: "application/stl"
                   });
                   const src = URL.createObjectURL(blob);
 
@@ -62,12 +62,12 @@ export default {
             });
           },
           {
-            id: "pdf-previews",
+            id: "stl-previews",
             onlyStream: true
           }
         );
       } catch (error) {
-        console.error("There's an issue in the pdf previews theme component");
+        console.error("There's an issue in the stl previews theme component");
         console.error(error);
       }
     });
