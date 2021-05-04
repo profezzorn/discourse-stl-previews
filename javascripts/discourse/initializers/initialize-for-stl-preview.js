@@ -1,11 +1,11 @@
 import { withPluginApi } from "discourse/lib/plugin-api";
 import Mobile from "discourse/lib/mobile";
+import "discourse/viewstl/stl_viewer.min.js";
 
 const PREVIEW_HEIGHT = 500;
 
 const createPreviewElem = () => {
-  const preview = document.createElement("iframe");
-  preview.src = "";
+  const preview = document.createElement("div");
   preview.height = PREVIEW_HEIGHT;
   preview.loading = "lazy";
   preview.classList.add("stl-preview");
@@ -33,7 +33,7 @@ export default {
             if (!stls.length) return;
 
             stls.forEach(stl => {
-              const preview = createPreviewElem();
+              const preview = createPreviewElem(); 
               stl.append(preview);
 
               stl.classList.add("stl-attachment");
@@ -54,8 +54,7 @@ export default {
                     type: "application/stl"
                   });
                   const src = URL.createObjectURL(blob);
-
-                  preview.src = src;
+		  var stl_viewer=new StlViewer(preview, { models: [ {id:0, filename: stl.href} ] });
                 }
               };
               httpRequest.send();
