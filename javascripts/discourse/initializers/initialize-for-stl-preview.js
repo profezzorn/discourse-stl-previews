@@ -28,7 +28,7 @@ export default {
 
             stls.forEach(stl => {
               const preview = createPreviewElem(); 
-              stl.append(preview);
+              stl.parentNode.insertBefore(preview, stl);
 
               stl.classList.add("stl-attachment");
               const fileSize = stl.nextSibling;
