@@ -1,14 +1,9 @@
 import { withPluginApi } from "discourse/lib/plugin-api";
 import Mobile from "discourse/lib/mobile";
 
-const PREVIEW_HEIGHT = 500;
-
 const createPreviewElem = () => {
   const preview = document.createElement("div");
-  preview.height = PREVIEW_HEIGHT + "px";
-  preview.loading = "lazy";
   preview.classList.add("stl-preview");
-
   return preview;
 };
 
