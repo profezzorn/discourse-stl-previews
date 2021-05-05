@@ -1,6 +1,5 @@
 import { withPluginApi } from "discourse/lib/plugin-api";
 import Mobile from "discourse/lib/mobile";
-import "../viewstl/stl_viewer.min";
 
 const PREVIEW_HEIGHT = 500;
 
