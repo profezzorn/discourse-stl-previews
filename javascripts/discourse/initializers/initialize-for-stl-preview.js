@@ -7,6 +7,8 @@ const createPreviewElem = () => {
   return preview;
 };
 
+var idSTL = 0;
+
 export default {
   name: "stl-previews",
   initialize() {
@@ -35,8 +37,8 @@ export default {
               if (fileSize) {
                 fileSize.nodeValue = "";
               }
-
-             var stl_viewer=new StlViewer(preview, { models: [ {id:0, filename: stl.href} ] });
+              idSTL = idSTL + 1;
+              var stl_viewer=new StlViewer(preview, { models: [ {id:idSTL, filename: stl.href} ] });
             });
           },
           {
