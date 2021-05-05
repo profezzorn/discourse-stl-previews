@@ -5,7 +5,7 @@ const PREVIEW_HEIGHT = 500;
 
 const createPreviewElem = () => {
   const preview = document.createElement("div");
-  preview.height = PREVIEW_HEIGHT;
+  preview.height = PREVIEW_HEIGHT + "px";
   preview.loading = "lazy";
   preview.classList.add("stl-preview");
 
@@ -41,22 +41,7 @@ export default {
                 fileSize.nodeValue = "";
               }
 
-              const httpRequest = new XMLHttpRequest();
-              httpRequest.open("GET", stl.href);
-              httpRequest.responseType = "blob";
-
-              httpRequest.onreadystatechange = () => {
-                if (httpRequest.readyState !== XMLHttpRequest.DONE) return;
-
-                if (httpRequest.status === 200) {
-                  const blob = new Blob([httpRequest.response], {
-                    type: "application/stl"
-                  });
-                  const src = URL.createObjectURL(blob);
-		  var stl_viewer=new StlViewer(preview, { models: [ {id:0, filename: stl.href} ] });
-                }
-              };
-              httpRequest.send();
+             var stl_viewer=new StlViewer(preview, { models: [ {id:0, filename: stl.href} ] });
             });
           },
           {
