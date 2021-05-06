@@ -1,13 +1,12 @@
 import { withPluginApi } from "discourse/lib/plugin-api";
 import Mobile from "discourse/lib/mobile";
+import StlViewer from '../stlviewer/StlViewer'
 
 const createPreviewElem = () => {
   const preview = document.createElement("div");
   preview.classList.add("stl-preview");
   return preview;
 };
-
-var idSTL = 0;
 
 export default {
   name: "stl-previews",
@@ -37,8 +36,7 @@ export default {
               if (fileSize) {
                 fileSize.nodeValue = "";
               }
-              idSTL = idSTL + 1;
-              var stl_viewer=new StlViewer(preview, { models: [ {id:idSTL, filename: stl.href} ] });
+              new StlViewer(stl, preview);
             });
           },
           {
