@@ -24,9 +24,9 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import * as THREE from '../three/build/three.module';
-import { STLLoader } from '../three/examples/jsm/loaders/STLLoader';
-import { OrbitControls } from '../three/examples/jsm/controls/OrbitControls';
+import * as THREE from '../three/build/three.module.js';
+import { STLLoader } from '../three/examples/jsm/loaders/STLLoader.js';
+import { OrbitControls } from '../three/examples/jsm/controls/OrbitControls.js';
 
 export default class StlViewer {
   constructor(stl, element) {
