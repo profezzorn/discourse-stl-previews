@@ -24,9 +24,9 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import * as THREE from 'https://cdn.skypack.dev/pin/three@v0.128.0-iDyvDZdRCoyR9DXa2rWg/mode=imports,min/optimized/three.js';
-import { STLLoader } from 'https://cdn.skypack.dev/pin/three@v0.128.0-iDyvDZdRCoyR9DXa2rWg/mode=imports,min/optimized/examples/jsm/loaders/STLLoader.js';
-import { OrbitControls } from 'https://cdn.skypack.dev/pin/three@v0.128.0-iDyvDZdRCoyR9DXa2rWg/mode=imports,min/optimized/examples/jsm/controls/OrbitControls.js';
+import * as THREE from '/xi/three/build/three.module';
+import { STLLoader } from '/xi/three/examples/jsm/loaders/STLLoader';
+import { OrbitControls } from '/xi/three/examples/jsm/controls/OrbitControls';
 
 export default class StlViewer {
   constructor(stl, element) {
