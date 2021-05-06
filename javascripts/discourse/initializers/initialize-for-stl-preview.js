@@ -1,6 +1,5 @@
 import { withPluginApi } from "discourse/lib/plugin-api";
 import Mobile from "discourse/lib/mobile";
-import * as THREE from '../three/build/three.module';
 import StlViewer from '../stlviewer/StlViewer'
 
 const createPreviewElem = () => {
