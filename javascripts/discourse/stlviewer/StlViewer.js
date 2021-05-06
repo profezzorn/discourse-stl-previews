@@ -5,6 +5,7 @@
  * included below:
  *
  * Copyright 2019 Anthony Biondo
+ * Copyright 2021 Fredrik Hubinette
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
  * associated documentation files (the “Software”), to deal in the Software without restriction, including
@@ -23,9 +24,9 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-import * as THREE from '../three/build/three.module';
-import { STLLoader } from '../three/examples/jsm/loaders/STLLoader';
-import { OrbitControls } from '../three/examples/jsm/controls/OrbitControls';
+import * as THREE from 'https://cdn.skypack.dev/pin/three@0.128.0'
+import { STLLoader } from 'https://cdn.skypack.dev/three@0.128.0/examples/jsm/loaders/STLLoader';
+import { OrbitControls } from 'https://cdn.skypack.dev/three@0.128.0/examples/jsm/controls/OrbitControls.js';
 
 export default class StlViewer {
   constructor(stl, element) {
