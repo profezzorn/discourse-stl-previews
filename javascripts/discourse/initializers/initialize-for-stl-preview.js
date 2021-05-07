@@ -1,10 +1,10 @@
 import { withPluginApi } from "discourse/lib/plugin-api";
 import Mobile from "discourse/lib/mobile";
-import StlViewer from '../stlviewer/StlViewer'
 
 const createPreviewElem = () => {
-  const preview = document.createElement("div");
+  const preview = document.createElement("iframe");
   preview.classList.add("stl-preview");
+  preview.loading = "lazy";
   return preview;
 };
 
@@ -28,7 +28,8 @@ export default {
             if (!stls.length) return;
 
             stls.forEach(stl => {
-              const preview = createPreviewElem(); 
+              const preview = createPreviewElem();
+              preview.src = "/xi/viewstl.html?file=" + stl;
               stl.parentNode.insertBefore(preview, stl);
 
               stl.classList.add("stl-attachment");
@@ -36,7 +37,6 @@ export default {
               if (fileSize) {
                 fileSize.nodeValue = "";
               }
-              new StlViewer(stl, preview);
             });
           },
           {
