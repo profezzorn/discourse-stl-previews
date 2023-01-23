@@ -22,7 +22,7 @@ export default {
             if (!attachments.length) return;
 
             const stls = attachments.filter(attachment =>
-              attachment.href.match(/\.[stl]+$/)
+              attachment.href.match(/\.[stl]+$/i)
             );
 
             if (!stls.length) return;
